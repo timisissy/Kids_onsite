@@ -147,9 +147,31 @@ class StationRegistration {
     }
     
     async sendToGoogleSheets(entryData) {
-        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxT8K4H7Zg3Y5U2V1W9X0Q6P7M8N4L5J1K2H3G9F8E7D6C5B4A3Z2Y1X0W9V8U7T6S5R4Q3P2O1N0M9L8K7J6I5H4G3F2E1D0C9B8A7Z6Y5X4W3V2U1T0/exec';
+        // You need to create a Google Apps Script with the following code:
+        // function doPost(e) {
+        //   var sheet = SpreadsheetApp.openById('1_XrC5Yh0GdBZP02B8NtmVWGOLgJOHNpJYBF71GG513k').getSheetByName('APP');
+        //   var data = JSON.parse(e.postData.contents);
+        //   sheet.appendRow([data.name, data.station, data.timestamp]);
+        //   return ContentService.createTextOutput('Success');
+        // }
+        // Then deploy it as a web app and replace the URL below with your deployment URL
+        
+        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec';
         
         try {
+            // Create form data for better compatibility
+            const formData = new FormData();
+            formData.append('name', entryData.name);
+            formData.append('station', entryData.station);
+            formData.append('timestamp', entryData.timestamp.toISOString());
+            
+            console.log('Data ready for Google Sheets:', {
+                name: entryData.name,
+                station: entryData.station,
+                timestamp: entryData.timestamp.toISOString()
+            });
+            
+            // Alternative method using fetch with JSON
             const response = await fetch(GOOGLE_SHEETS_URL, {
                 method: 'POST',
                 mode: 'no-cors',
@@ -159,8 +181,7 @@ class StationRegistration {
                 body: JSON.stringify({
                     name: entryData.name,
                     station: entryData.station,
-                    timestamp: entryData.timestamp.toISOString(),
-                    sheet: 'APP'
+                    timestamp: entryData.timestamp.toISOString()
                 })
             });
             
