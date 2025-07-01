@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walk With Me - Munkaköyv</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Walk With Me - Munkaköyv</h1>
+            <div style="margin-top: 1rem;">
+                <a href="download.html" style="color: white; text-decoration: none; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 14px;">
+                    📦 Alkalmazás letöltése
+                </a>
+            </div>
+        </header>
+        
+        <main>
+            <form id="registrationForm" class="form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="station">Station:</label>
+                    <select id="station" name="station" required>
+                        <option value="">Select a station</option>
+                        <option value="Newcomer Education - Kötelező Kezdő Kalauz">Newcomer Education - Kötelező Kezdő Kalauz</option>
+                        <option value="HR - Toborzás">HR - Toborzás</option>
+                        <option value="Teams meeting">Teams meeting</option>
+                        <option value="Site térkép">Site térkép</option>
+                        <option value="Elsősegély nyújtás">Elsősegély nyújtás</option>
+                        <option value="Projectmunka">Projectmunka</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+            
+            <!-- Map Section -->
+            <section class="map-section">
+                <h2>Térkép</h2>
+                <div class="map-container">
+                    <img src="attached_assets/image_1751376837505.png" alt="Kyndryl Santa Claus 2024 Floor Plan" class="site-map">
+                </div>
+            </section>
+            
+            <!-- Password Modal -->
+            <div id="passwordModal" class="modal">
+                <div class="modal-content">
+                    <h3>Station Access Required</h3>
+                    <p>Please enter the station password:</p>
+                    <input type="password" id="passwordInput" placeholder="Enter password">
+                    <div class="modal-buttons">
+                        <button id="confirmPassword" class="btn-primary">Confirm</button>
+                        <button id="cancelPassword" class="btn-secondary">Cancel</button>
+                    </div>
+                    <div id="passwordError" class="error-message"></div>
+                </div>
+            </div>
+            
+            <section class="results-section">
+                <h2>Registered Entries</h2>
+                <div id="resultsList" class="results-list">
+                    <p class="no-entries">No entries yet. Submit the form above to get started!</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
