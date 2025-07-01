@@ -156,7 +156,7 @@ class StationRegistration {
         // }
         // Then deploy it as a web app and replace the URL below with your deployment URL
         
-        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwBOw-Eej3aY8aB2zwr7JYaIfPd3BlB9_s33AMv8PQpWNV2w_0R15ObXXtgyRgY-SDO7Q/exec';
+        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxVY0luN4dAi0QdeGWnZzWpHx7Tt2C6eJpARJG2NGDWuaSKlsCHE87on1XRJEY8WYBKxA/exec';
         
         try {
             // Create form data for better compatibility
