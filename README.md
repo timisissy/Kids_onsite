@@ -1,7 +1,7 @@
-# Walk With Me - Munkakönyv
+# Kid's onsite - Munkakönyv
 
 ## Leírás
-Ez egy webes alkalmazás állomások regisztrálására a Kyndryl Walk With Me programhoz.
+Ez egy webes alkalmazás állomások regisztrálására a Kyndryl Kid's onsite programhoz.
 
 ## Funkciók
 - Név mentése és automatikus kitöltése
@@ -32,7 +32,7 @@ A táblázat link: https://docs.google.com/spreadsheets/d/1_XrC5Yh0GdBZP02B8NtmV
 - index.html: Fő HTML oldal a teljes alkalmazással
 - style.css: CSS stílusok és responsive design
 - script.js: JavaScript logika, form kezelés, localStorage, Google Sheets integráció
-- attached_assets/image_1751376837505.png: Térkép kép
+- attached_assets/map_1753105289138.png: Térkép kép
 - README.md: Ez a dokumentáció
 
 ## Technikai követelmények
@@ -44,4 +44,4 @@ A táblázat link: https://docs.google.com/spreadsheets/d/1_XrC5Yh0GdBZP02B8NtmV
 Minden állomáshoz: 0815
 
 ## Fejlesztés
-2024 - Kyndryl Walk With Me program
+2024 - Kyndryl Kid's onsite program

@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walk With Me - Munkakönyv</title>
+    <title>Kid's onsite - Munkakönyv</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div class="container">
         <header>
-            <h1 style="font-weight: bold;">Walk With Me - Munkakönyv</h1>
+            <h1 style="font-weight: bold;">Kid's onsite - Munkakönyv</h1>
             <div style="margin-top: 1rem; color: white; font-size: 1.1rem; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto; text-align: left; background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
                 <p style="margin-bottom: 1rem; font-weight: bold;">Hatalmas nagy szeretettel köszöntünk – most te is kipróbálhatod, milyen Kyndrylesnek lenni!</p>
                 
@@ -20,44 +20,48 @@
                     <strong style="color: #fff;">💡 Fontos:</strong> NE MÓDOSÍTSD a nevedet az állomások között! A rendszer megjegyzi, elég az állomást kiválasztanod.
                 </div>
                 <p style="margin-bottom: 0.5rem;"><strong>2:</strong> Kattints a "Küldés" gombra – ezzel rögzíted, hogy elvégezted az adott feladatot.</p>
-                <p style="margin-bottom: 0.5rem; margin-left: 1rem; font-style: italic;">- Az állomás önkéntese jelszóval fogja jóváhagyni a teljesítést. -</p>
+                <p style="margin-bottom: 0.5rem; margin-left: 1rem; font-style: italic;">- A véglegesítéshez a jelszót az állomásvezetőtől kapod meg. -</p>
                 <p style="margin-bottom: 1rem;"><strong>3:</strong> Az állomások listájában rögtön látod, mely helyszíneket teljesítetted már.</p>
                 
                 <p style="margin-bottom: 1rem;">A program végén, a kijáratnál csak mondd be a regisztrált neved a recepciónál – a szervezők az alkalmazásban azonnal ellenőrizni tudják, hogy minden állomást teljesítettél-e. Meglepetés várja az új kollégákat! :)</p>
                 
                 <p style="margin-bottom: 0.5rem; font-weight: bold;">Kellemes munkanapot kíván:</p>
-                <p style="font-style: italic;">A Walk with Me önkéntesei!</p>
+                <p style="font-style: italic;">A Kid's onsite önkéntesei!</p>
             </div>
         </header>
         
         <main>
             <form id="registrationForm" class="form">
                 <div class="form-group">
-                    <label for="name">Name:</label>
+                    <label for="name">Név:</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="station">Station:</label>
+                    <label for="station">Állomás:</label>
                     <select id="station" name="station" required>
-                        <option value="">Select a station</option>
-                        <option value="Newcomer Education - Kötelező Kezdő Kalauz">Newcomer Education - Kötelező Kezdő Kalauz</option>
-                        <option value="HR - Toborzás">HR - Toborzás</option>
-                        <option value="Teams meeting">Teams meeting</option>
-                        <option value="Site térkép">Site térkép</option>
-                        <option value="Elsősegély nyújtás">Elsősegély nyújtás</option>
-                        <option value="Projectmunka">Projectmunka</option>
+                        <option value="">Válassz állomást!</option>
+                        <option value="AI bemutató">AI bemutató</option>
+                        <option value="Belépőkártya készítés">Belépőkártya készítés</option>
+                        <option value="Elsősegély kvíz (Kyndryl feladatok)">Elsősegély kvíz (Kyndryl feladatok)</option>
+                        <option value="HR felvételi (Kyndryl feladatok)">HR felvételi (Kyndryl feladatok)</option>
+                        <option value="Iroda térkép - Hol ülnek a szüleid?">Iroda térkép - Hol ülnek a szüleid?</option>
+                        <option value="Munkakönyv fénymásolás">Munkakönyv fénymásolás</option>
+                        <option value="Munkanap szervezés (Kyndryl feladatok)">Munkanap szervezés (Kyndryl feladatok)</option>
+                        <option value="PC szétszedés és összerakás - bemutató">PC szétszedés és összerakás - bemutató</option>
+                        <option value="Rendőrségi bemutató">Rendőrségi bemutató</option>
+                        <option value="Teams értekezlet a Pitypang zenekarral">Teams értekezlet a Pitypang zenekarral</option>
                     </select>
                 </div>
                 
-                <button type="submit" class="submit-btn">Submit</button>
+                <button type="submit" class="submit-btn">Küldés</button>
             </form>
             
             <!-- Map Section -->
             <section class="map-section">
                 <h2>Térkép</h2>
                 <div class="map-container">
-                    <img src="./image_1751376837505.png" alt="Kyndryl Santa Claus 2024 Floor Plan" class="site-map" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <img src="attached_assets/kids_onsite_2025_map.png" alt="Kid's onsite 2025 Floor Plan" class="site-map" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #f0f0f0;">
                 </div>
             </section>
             
@@ -76,7 +80,7 @@
             </div>
             
             <section class="results-section">
-                <h2>Registered Entries</h2>
+                <h2>Teljesített állomások</h2>
                 <div id="resultsList" class="results-list">
                     <p class="no-entries">No entries yet. Submit the form above to get started!</p>
                 </div>
