@@ -243,6 +243,7 @@ class StationRegistration {
 document.addEventListener('DOMContentLoaded', () => {
     new StationRegistration();
     initializeHowToToggle();
+    initializeCollapsibleSections();
 });
 
 function initializeHowToToggle() {
@@ -276,4 +277,45 @@ function initializeHowToToggle() {
     content.style.maxHeight = '0px';
     content.style.opacity = '0';
     toggleIcon.style.transform = 'rotate(-90deg)';
+}
+
+function initializeCollapsibleSections() {
+    const sections = [
+        { toggle: 'scheduleToggle', icon: 'scheduleToggleIcon', content: 'scheduleContent' },
+        { toggle: 'mapToggle', icon: 'mapToggleIcon', content: 'mapContent' },
+        { toggle: 'resultsToggle', icon: 'resultsToggleIcon', content: 'resultsContent' }
+    ];
+
+    sections.forEach(section => {
+        const toggleButton = document.getElementById(section.toggle);
+        const toggleIcon = document.getElementById(section.icon);
+        const content = document.getElementById(section.content);
+
+        if (!toggleButton || !toggleIcon || !content) {
+            return; // Elements not found, skip this section
+        }
+
+        let isExpanded = false; // Start collapsed
+
+        toggleButton.addEventListener('click', () => {
+            isExpanded = !isExpanded;
+
+            if (isExpanded) {
+                // Show content
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.opacity = '1';
+                toggleIcon.style.transform = 'rotate(0deg)';
+            } else {
+                // Hide content
+                content.style.maxHeight = '0px';
+                content.style.opacity = '0';
+                toggleIcon.style.transform = 'rotate(-90deg)';
+            }
+        });
+
+        // Set initial state (collapsed)
+        content.style.maxHeight = '0px';
+        content.style.opacity = '0';
+        toggleIcon.style.transform = 'rotate(-90deg)';
+    });
 }

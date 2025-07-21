@@ -67,11 +67,113 @@
                 <button type="submit" class="submit-btn">Küldés</button>
             </form>
             
+            <!-- Schedule Section -->
+            <section class="schedule-section">
+                <button id="scheduleToggle" class="section-toggle">
+                    <span id="scheduleToggleIcon" class="toggle-icon">▼</span>
+                    <h2 style="margin: 0; display: inline;">Menetrend</h2>
+                </button>
+                <div id="scheduleContent" class="collapsible-content">
+                    <div class="schedule-container">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr class="townhall-header">
+                                <th colspan="2">Townhall</th>
+                                <th>Max létszám</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>9:00</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>9:30</td>
+                                <td>Gymstick - Zenés mozgás (20 min)</td>
+                                <td>30 gyerek</td>
+                            </tr>
+                            <tr>
+                                <td>10:00</td>
+                                <td>Teams Meeting (20 min)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>10:30</td>
+                                <td>Gymstick - Zenés mozgás (20 min)</td>
+                                <td>30 gyerek</td>
+                            </tr>
+                            <tr>
+                                <td>11:00</td>
+                                <td>Teams Meeting (20 min)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>11:30</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="schedule-table">
+                        <thead>
+                            <tr class="node-red-header">
+                                <th colspan="2">Node-Red (C eleje)</th>
+                                <th>Érkézési sorrenden</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>9:45</td>
+                                <td>Node-Red (45 min)</td>
+                                <td>Max 10 gyerek</td>
+                            </tr>
+                            <tr>
+                                <td>11:15</td>
+                                <td>Node-Red (45 min)</td>
+                                <td>Max 10 gyerek</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="schedule-table">
+                        <thead>
+                            <tr class="job-behind-header">
+                                <th colspan="3">7507 (C jobb hátul)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>9:20</td>
+                                <td>AI (20 min)</td>
+                                <td>Max 10 gyerek</td>
+                            </tr>
+                            <tr>
+                                <td>10:20</td>
+                                <td>AI (20 min)</td>
+                                <td>Max 10 gyerek</td>
+                            </tr>
+                            <tr>
+                                <td>11:20</td>
+                                <td>AI (20 min)</td>
+                                <td>Max 10 gyerek</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
             <!-- Map Section -->
             <section class="map-section">
-                <h2>Térkép</h2>
-                <div class="map-container">
-                    <img src="/map_1753105916949.png" alt="Kid's onsite 2025 Floor Plan" class="site-map" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #f0f0f0;">
+                <button id="mapToggle" class="section-toggle">
+                    <span id="mapToggleIcon" class="toggle-icon">▼</span>
+                    <h2 style="margin: 0; display: inline;">Térkép</h2>
+                </button>
+                <div id="mapContent" class="collapsible-content">
+                    <div class="map-container">
+                    <img src="attached_assets/map_1753105916949.png" alt="Kid's onsite 2025 Floor Plan" class="site-map" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #f0f0f0;">
+                    </div>
                 </div>
             </section>
             
@@ -90,9 +192,14 @@
             </div>
             
             <section class="results-section">
-                <h2>Teljesített állomások</h2>
-                <div id="resultsList" class="results-list">
+                <button id="resultsToggle" class="section-toggle">
+                    <span id="resultsToggleIcon" class="toggle-icon">▼</span>
+                    <h2 style="margin: 0; display: inline;">Teljesített állomások</h2>
+                </button>
+                <div id="resultsContent" class="collapsible-content">
+                    <div id="resultsList" class="results-list">
                     <p class="no-entries">No entries yet. Submit the form above to get started!</p>
+                    </div>
                 </div>
             </section>
         </main>
