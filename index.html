@@ -14,16 +14,27 @@
             <div style="margin-top: 1rem; color: white; font-size: 1.1rem; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto; text-align: left; background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
                 <p style="margin-bottom: 1rem; font-weight: bold;">Hatalmas nagy szeretettel köszöntünk – most te is kipróbálhatod, milyen Kyndrylesnek lenni!</p>
                 
-                <p style="margin-bottom: 0.8rem; font-weight: bold;">Hogyan csináld:</p>
-                <p style="margin-bottom: 0.5rem;"><strong>1:</strong> Add meg a(z egyedi) (bece)nevedet az űrlapon, majd válaszd ki, melyik állomáson jársz éppen.</p>
-                <div style="background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05)); border-left: 3px solid #fff; padding: 0.8rem; margin: 0.8rem 0; border-radius: 6px; font-size: 0.95rem;">
-                    <strong style="color: #fff;">💡 Fontos:</strong> NE MÓDOSÍTSD a nevedet az állomások között! A rendszer megjegyzi, elég az állomást kiválasztanod.
+                <div style="margin-bottom: 1rem;">
+                    <button id="howToToggle" style="background: none; border: none; color: white; font-size: 1.1rem; font-weight: bold; cursor: pointer; padding: 0; display: flex; align-items: center; width: 100%;">
+                        <span id="toggleIcon" style="margin-right: 0.5rem; transition: transform 0.3s ease;">▼</span>
+                        Hogyan csináld:
+                    </button>
+                    
+                    <div id="howToContent" style="margin-top: 0.8rem; transition: max-height 0.3s ease, opacity 0.3s ease; overflow: hidden;">
+                        <p style="margin-bottom: 0.5rem;"><strong>1:</strong> Add meg a(z egyedi) (bece)nevedet az űrlapon, majd válaszd ki, melyik állomáson jársz éppen.</p>
+                        <div style="background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05)); border-left: 3px solid #fff; padding: 0.8rem; margin: 0.8rem 0; border-radius: 6px; font-size: 0.95rem;">
+                            <strong style="color: #fff;">💡 Fontos:</strong> NE MÓDOSÍTSD a nevedet az állomások között! A rendszer megjegyzi, elég az állomást kiválasztanod.
+                        </div>
+                        <p style="margin-bottom: 0.5rem;"><strong>2:</strong> Kattints a "Küldés" gombra – ezzel rögzíted, hogy elvégezted az adott feladatot.</p>
+                        <p style="margin-bottom: 0.5rem; margin-left: 1rem; font-style: italic;">- A véglegesítéshez a jelszót az állomásvezetőtől kapod meg. -</p>
+                        <p style="margin-bottom: 1rem;"><strong>3:</strong> Az állomások listájában rögtön látod, mely helyszíneket teljesítetted már.</p>
+                        
+                        <p style="margin-bottom: 1rem;">A program végén, a kijáratnál csak mondd be a regisztrált neved a recepciónál – a szervezők az alkalmazásban azonnal ellenőrizni tudják, hogy minden állomást teljesítettél-e. Meglepetés várja az új kollégákat! :)</p>
+                        
+                        <p style="margin-bottom: 1rem; font-weight: bold; color: #fff;">FONTOS!</p>
+                        <p style="margin-bottom: 1rem;">A meglepetés átvételéhez elegendő 5 állomást teljesítened.</p>
+                    </div>
                 </div>
-                <p style="margin-bottom: 0.5rem;"><strong>2:</strong> Kattints a "Küldés" gombra – ezzel rögzíted, hogy elvégezted az adott feladatot.</p>
-                <p style="margin-bottom: 0.5rem; margin-left: 1rem; font-style: italic;">- A véglegesítéshez a jelszót az állomásvezetőtől kapod meg. -</p>
-                <p style="margin-bottom: 1rem;"><strong>3:</strong> Az állomások listájában rögtön látod, mely helyszíneket teljesítetted már.</p>
-                
-                <p style="margin-bottom: 1rem;">A program végén, a kijáratnál csak mondd be a regisztrált neved a recepciónál – a szervezők az alkalmazásban azonnal ellenőrizni tudják, hogy minden állomást teljesítettél-e. Meglepetés várja az új kollégákat! :)</p>
                 
                 <p style="margin-bottom: 0.5rem; font-weight: bold;">Kellemes munkanapot kíván:</p>
                 <p style="font-style: italic;">A Kid's onsite önkéntesei!</p>
@@ -46,7 +57,6 @@
                         <option value="Elsősegély kvíz (Kyndryl feladatok)">Elsősegély kvíz (Kyndryl feladatok)</option>
                         <option value="HR felvételi (Kyndryl feladatok)">HR felvételi (Kyndryl feladatok)</option>
                         <option value="Iroda térkép - Hol ülnek a szüleid?">Iroda térkép - Hol ülnek a szüleid?</option>
-                        <option value="Munkakönyv fénymásolás">Munkakönyv fénymásolás</option>
                         <option value="Munkanap szervezés (Kyndryl feladatok)">Munkanap szervezés (Kyndryl feladatok)</option>
                         <option value="PC szétszedés és összerakás - bemutató">PC szétszedés és összerakás - bemutató</option>
                         <option value="Rendőrségi bemutató">Rendőrségi bemutató</option>
@@ -61,7 +71,7 @@
             <section class="map-section">
                 <h2>Térkép</h2>
                 <div class="map-container">
-                    <img src="attached_assets/kids_onsite_2025_map.png" alt="Kid's onsite 2025 Floor Plan" class="site-map" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #f0f0f0;">
+                    <img src="attached_assets/map_1753105916949.png" alt="Kid's onsite 2025 Floor Plan" class="site-map" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #f0f0f0;">
                 </div>
             </section>
             

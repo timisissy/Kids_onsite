@@ -242,4 +242,38 @@ class StationRegistration {
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new StationRegistration();
+    initializeHowToToggle();
 });
+
+function initializeHowToToggle() {
+    const toggleButton = document.getElementById('howToToggle');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const content = document.getElementById('howToContent');
+    
+    if (!toggleButton || !toggleIcon || !content) {
+        return; // Elements not found, skip initialization
+    }
+    
+    let isExpanded = false; // Start collapsed
+    
+    toggleButton.addEventListener('click', () => {
+        isExpanded = !isExpanded;
+        
+        if (isExpanded) {
+            // Show content
+            content.style.maxHeight = content.scrollHeight + 'px';
+            content.style.opacity = '1';
+            toggleIcon.style.transform = 'rotate(0deg)';
+        } else {
+            // Hide content
+            content.style.maxHeight = '0px';
+            content.style.opacity = '0';
+            toggleIcon.style.transform = 'rotate(-90deg)';
+        }
+    });
+    
+    // Set initial state (collapsed)
+    content.style.maxHeight = '0px';
+    content.style.opacity = '0';
+    toggleIcon.style.transform = 'rotate(-90deg)';
+}

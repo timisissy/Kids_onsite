@@ -32,7 +32,7 @@ A táblázat link: https://docs.google.com/spreadsheets/d/1_XrC5Yh0GdBZP02B8NtmV
 - index.html: Fő HTML oldal a teljes alkalmazással
 - style.css: CSS stílusok és responsive design
 - script.js: JavaScript logika, form kezelés, localStorage, Google Sheets integráció
-- attached_assets/map_1753105289138.png: Térkép kép
+- map_1753105916949.png: Térkép kép
 - README.md: Ez a dokumentáció
 
 ## Technikai követelmények
@@ -44,4 +44,4 @@ A táblázat link: https://docs.google.com/spreadsheets/d/1_XrC5Yh0GdBZP02B8NtmV
 Minden állomáshoz: 0815
 
 ## Fejlesztés
-2024 - Kyndryl Kid's onsite program
+2025 - Kyndryl Kid's onsite program
