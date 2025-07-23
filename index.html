@@ -48,8 +48,22 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="station">Állomás - Székesfehérvár:</label>
-                    <select id="station" name="station" required>
+                    <label>Válassz helyszínt:</label>
+                    <div class="location-selection">
+                        <label class="radio-label">
+                            <input type="radio" name="location" value="szekesfehervar" id="locationSzekesfehervar" required>
+                            Székesfehérvár
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="location" value="budapest" id="locationBudapest" required>
+                            Budapest
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="stationGroupSzekesfehervar" style="display: none;">
+                    <label for="stationSzekesfehervar">Állomás - Székesfehérvár:</label>
+                    <select id="stationSzekesfehervar" name="stationSzekesfehervar">
                         <option value="">Válaszd ki az állomást, ahol éppen vagy</option>
                         <option value="AI bemutató">AI bemutató</option>
                         <option value="Belépőkártya készítés">Belépőkártya készítés</option>
@@ -63,9 +77,9 @@
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" id="stationGroupBudapest" style="display: none;">
                     <label for="stationBudapest">Állomás - Budapest:</label>
-                    <select id="stationBudapest" name="stationBudapest" required>
+                    <select id="stationBudapest" name="stationBudapest">
                         <option value="">Válaszd ki az állomást, ahol éppen vagy</option>
                         <option value="BP - AI bemutató">BP - AI bemutató</option>
                         <option value="BP - Belépőkártya készítés">BP - Belépőkártya készítés</option>
