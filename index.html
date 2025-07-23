@@ -29,6 +29,9 @@
                         <p style="margin-bottom: 1rem;"><strong>3:</strong> Az állomások listájában rögtön látod, mely helyszíneket teljesítetted már.</p>
 
                         <p style="margin-bottom: 1rem;">Mielőtt elindulsz haza a szüleiddel, a kijáratnál csak mondd be a neved a recepciónál. Ha legalább 5 állomást teljesítettél, ajándékot kapsz tőlünk! :)</p>
+
+                        <p style="margin-bottom: 1rem; font-weight: bold; color: #fff;">FONTOS!</p>
+                        <p style="margin-bottom: 1rem;">A meglepetés átvételéhez elegendő 5 állomást teljesítened.</p>
                     </div>
                 </div>
 
@@ -45,7 +48,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="station">Állomás:</label>
+                    <label for="station">Állomás - Székesfehérvár:</label>
                     <select id="station" name="station" required>
                         <option value="">Válaszd ki az állomást, ahol éppen vagy</option>
                         <option value="AI bemutató">AI bemutató</option>
@@ -57,6 +60,22 @@
                         <option value="PC szétszedés és összerakás - bemutató">PC szétszedés és összerakás - bemutató</option>
                         <option value="Rendőrségi bemutató">Rendőrségi bemutató</option>
                         <option value="Teams értekezlet a Pitypang zenekarral">Teams értekezlet a Pitypang zenekarral</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="stationBudapest">Állomás - Budapest:</label>
+                    <select id="stationBudapest" name="stationBudapest" required>
+                        <option value="">Válaszd ki az állomást, ahol éppen vagy</option>
+                        <option value="BP - AI bemutató">BP - AI bemutató</option>
+                        <option value="BP - Belépőkártya készítés">BP - Belépőkártya készítés</option>
+                        <option value="BP - Elsősegély kvíz (Helyszín: Kyndryl feladatok)">BP - Elsősegély kvíz (Helyszín: Kyndryl feladatok)</option>
+                        <option value="BP - HR felvételi (Helyszín: Kyndryl feladatok)">BP - HR felvételi (Helyszín: Kyndryl feladatok)</option>
+                        <option value="BP - Munkanap szervezés (Helyszín: Kyndryl feladatok)">BP - Munkanap szervezés (Helyszín: Kyndryl feladatok)</option>
+                        <option value="BP - Iroda térkép - Hol ülnek a szüleid?">BP - Iroda térkép - Hol ülnek a szüleid?</option>
+                        <option value="BP - PC szétszedés és összerakás - bemutató">BP - PC szétszedés és összerakás - bemutató</option>
+                        <option value="BP - Rendőrségi bemutató">BP - Rendőrségi bemutató</option>
+                        <option value="BP - Teams értekezlet a Pitypang zenekarral">BP - Teams értekezlet a Pitypang zenekarral</option>
                     </select>
                 </div>
 
@@ -165,11 +184,11 @@
             <section class="map-section">
                 <button id="mapToggle" class="section-toggle">
                     <span id="mapToggleIcon" class="toggle-icon">▼</span>
-                    <h2 style="margin: 0; display: inline;">Térkép</h2>
+                    <h2 style="margin: 0; display: inline;">Térkép - Székesfehérvár</h2>
                 </button>
                 <div id="mapContent" class="collapsible-content">
                     <div class="map-container">
-                    <img src="map.png" alt="Egy nap az irodában - Térkép" class="site-map" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #f0f0f0;">
+                    <img src="map.png" alt="Egy nap az irodában - 2025 Floor Plan" class="site-map" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #f0f0f0;">
                     </div>
                 </div>
             </section>
