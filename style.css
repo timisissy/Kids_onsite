@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walk With Me - Munkaköyv</title>
-    <style>
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -113,8 +106,6 @@
             width: auto;
             margin: 0;
         }
-
-        
 
         /* Modal Styles */
         .modal {
@@ -236,6 +227,11 @@
 
         .job-behind-header {
             background: linear-gradient(135deg, #4caf50, #388e3c);
+            color: white;
+        }
+
+        .ai-header {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
             color: white;
         }
 
@@ -403,69 +399,3 @@
                 padding: 1.5rem;
             }
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Walk With Me - Munkaköyv</h1>
-        </header>
-        <section class="form">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name">
-            </div>
-            <div class="form-group">
-                <label for="station">Station</label>
-                <select id="station" name="station">
-                    <option value="Newcomer Education">Newcomer Education - Kötelező Kezdő Kalauz</option>
-                    <option value="HR">HR - Toborzás</option>
-                    <option value="Teams meeting">Teams meeting</option>
-                    <option value="Site térkép">Site térkép</option>
-                    <option value="Elsősegély nyújtás">Elsősegély nyújtás</option>
-                    <option value="Projectmunka">Projectmunka</option>
-                </select>
-            </div>
-            <button class="submit-btn">Submit</button>
-        </section>
-        
-        <!-- Schedule Section -->
-        <section class="schedule-section">
-            <h2>Menetrend</h2>
-            <div class="schedule-container">
-                <table class="schedule-table">
-                    <thead>
-                        <tr>
-                            <th class="townhall-header">Townhall</th>
-                            <th class="node-red-header">Node-RED</th>
-                            <th class="job-behind-header">A munka mögött</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>10:00 - 10:20</td>
-                            <td>10:30 - 10:50</td>
-                            <td>11:00 - 11:20</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-            <!-- Map Section -->
-            <section class="map-section">
-                <h2>Site Map - Kyndryl's Santa Claus 2024</h2>
-                <div class="map-container">
-                    <img src="attached_assets/image_1751375987871.png" alt="Kyndryl Santa Claus 2024 Floor Plan" class="site-map">
-                </div>
-            </section>
-
-            <section class="results-section">
-                <h2>Registered Entries</h2>
-                <div id="resultsList" class="results-list">
-                    <p class="no-entries">No entries yet. Submit the form above to get started!</p>
-                </div>
-            </section>
-    </div>
-</body>
-</html>
