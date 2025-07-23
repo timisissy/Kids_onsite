@@ -1,9 +1,29 @@
-
 class StationRegistration {
     constructor() {
         this.entries = [];
         this.currentFormData = null;
-        this.STATION_PASSWORD = '0815';
+        this.MASTER_PASSWORD = '0815';
+        this.STATION_PASSWORDS = {
+            'Teams értekezlet a Pitypang zenekarral': '7535',
+            'AI bemutató': '7507',
+            'Munkanap szervezés (Helyszín: Kyndryl feladatok)': '0901',
+            'HR felvételi (Helyszín: Kyndryl feladatok)': '2013',
+            'Elsősegély kvíz (Helyszín: Kyndryl feladatok)': '0112',
+            'Belépőkártya készítés': '7527',
+            'Rendőrségi bemutató': '0104',
+            'PC szétszedés és összerakás - bemutató': '7604',
+            'Iroda térkép - Hol ülnek a szüleid?': '3535',
+            // Budapest állomások (ugyanazok a jelszavak)
+            'BP - Teams értekezlet a Pitypang zenekarral': '7535',
+            'BP - AI bemutató': '7507',
+            'BP - Munkanap szervezés (Helyszín: Kyndryl feladatok)': '0901',
+            'BP - HR felvételi (Helyszín: Kyndryl feladatok)': '2013',
+            'BP - Elsősegély kvíz (Helyszín: Kyndryl feladatok)': '0112',
+            'BP - Belépőkártya készítés': '7527',
+            'BP - Rendőrségi bemutató': '0104',
+            'BP - PC szétszedés és összerakás - bemutató': '7604',
+            'BP - Iroda térkép - Hol ülnek a szüleid?': '3535'
+        };
         this.savedName = localStorage.getItem('savedName') || '';
         this.completedStations = new Set(JSON.parse(localStorage.getItem('completedStations') || '[]'));
 
@@ -19,7 +39,7 @@ class StationRegistration {
         const cancelBtn = document.getElementById('cancelPassword');
         const passwordInput = document.getElementById('passwordInput');
         const nameInput = document.getElementById('name');
-
+        const locationRadios = document.querySelectorAll('input[name="location"]');
         form.addEventListener('submit', (e) => this.handleFormSubmit(e));
         confirmBtn.addEventListener('click', () => this.handlePasswordConfirm());
         cancelBtn.addEventListener('click', () => this.hidePasswordModal());
@@ -30,6 +50,11 @@ class StationRegistration {
                 this.savedName = nameInput.value.trim();
                 localStorage.setItem('savedName', this.savedName);
             }
+        });
+
+        // Handle location selection
+        locationRadios.forEach(radio => {
+            radio.addEventListener('change', () => this.handleLocationChange());
         });
 
         // Allow Enter key to confirm password
@@ -54,15 +79,40 @@ class StationRegistration {
         }
     }
 
-    updateStationOptions() {
-        const stationSelect = document.getElementById('station');
-        const options = stationSelect.querySelectorAll('option');
+    handleLocationChange() {
+        const szekesfehrvarpGroup = document.getElementById('stationGroupSzekesfehervar');
+        const budapestGroup = document.getElementById('stationGroupBudapest');
+        const selectedLocation = document.querySelector('input[name="location"]:checked');
 
-        options.forEach(option => {
-            if (option.value && this.completedStations.has(option.value)) {
-                option.textContent = option.textContent.replace(' ✓', '') + ' ✓';
-                option.style.color = '#28a745';
-                option.style.fontWeight = 'bold';
+        if (selectedLocation) {
+            if (selectedLocation.value === 'szekesfehervar') {
+                szekesfehrvarpGroup.style.display = 'block';
+                budapestGroup.style.display = 'none';
+                document.getElementById('stationBudapest').value = '';
+            } else if (selectedLocation.value === 'budapest') {
+                szekesfehrvarpGroup.style.display = 'none';
+                budapestGroup.style.display = 'block';
+                document.getElementById('stationSzekesfehervar').value = '';
+            }
+        }
+    }
+
+    
+
+    updateStationOptions() {
+        const stationSelectSzekesfehervar = document.getElementById('stationSzekesfehervar');
+        const stationSelectBudapest = document.getElementById('stationBudapest');
+
+        [stationSelectSzekesfehervar, stationSelectBudapest].forEach(stationSelect => {
+            if (stationSelect) {
+                const options = stationSelect.querySelectorAll('option');
+                options.forEach(option => {
+                    if (option.value && this.completedStations.has(option.value)) {
+                        option.textContent = option.textContent.replace(' ✓', '') + ' ✓';
+                        option.style.color = '#28a745';
+                        option.style.fontWeight = 'bold';
+                    }
+                });
             }
         });
     }
@@ -72,10 +122,20 @@ class StationRegistration {
 
         const formData = new FormData(e.target);
         const name = formData.get('name').trim();
-        const station = formData.get('station');
+        const location = formData.get('location');
+        const stationSzekesfehervar = formData.get('stationSzekesfehervar');
+        const stationBudapest = formData.get('stationBudapest');
 
-        if (!name || !station) {
-            alert('Please fill in all fields');
+        // Determine which station was selected
+        let station = '';
+        if (location === 'szekesfehervar') {
+            station = stationSzekesfehervar;
+        } else if (location === 'budapest') {
+            station = stationBudapest;
+        }
+
+        if (!name || !location || !station) {
+            alert('Kérlek töltsd ki az összes mezőt: név, helyszín és állomás');
             return;
         }
 
@@ -115,8 +175,14 @@ class StationRegistration {
         const passwordInput = document.getElementById('passwordInput');
         const errorDiv = document.getElementById('passwordError');
         const enteredPassword = passwordInput.value;
+        const currentStation = this.currentFormData.station;
 
-        if (enteredPassword === this.STATION_PASSWORD) {
+        // Check both station-specific password and master password
+        const stationPassword = this.STATION_PASSWORDS[currentStation];
+        const isCorrectPassword = enteredPassword === this.MASTER_PASSWORD || 
+                                 enteredPassword === stationPassword;
+
+        if (isCorrectPassword) {
             // Password correct - add entry
             this.addEntry(this.currentFormData);
             this.hidePasswordModal();
@@ -216,10 +282,22 @@ class StationRegistration {
 
     resetForm() {
         const form = document.getElementById('registrationForm');
-        const stationSelect = document.getElementById('station');
+        const locationRadios = document.querySelectorAll('input[name="location"]');
+        const stationSelectSzekesfehervar = document.getElementById('stationSzekesfehervar');
+        const stationSelectBudapest = document.getElementById('stationBudapest');
+        const szekesfehervarpGroup = document.getElementById('stationGroupSzekesfehervar');
+        const budapestGroup = document.getElementById('stationGroupBudapest');
 
-        // Only reset station, keep the saved name
-        stationSelect.value = '';
+        // Reset location selection
+        locationRadios.forEach(radio => radio.checked = false);
+
+        // Reset station selections
+        stationSelectSzekesfehervar.value = '';
+        stationSelectBudapest.value = '';
+
+        // Hide both station groups
+        szekesfehrvarpGroup.style.display = 'none';
+        budapestGroup.style.display = 'none';
     }
 
     escapeHtml(text) {
@@ -250,16 +328,16 @@ function initializeHowToToggle() {
     const toggleButton = document.getElementById('howToToggle');
     const toggleIcon = document.getElementById('toggleIcon');
     const content = document.getElementById('howToContent');
-    
+
     if (!toggleButton || !toggleIcon || !content) {
         return; // Elements not found, skip initialization
     }
-    
+
     let isExpanded = false; // Start collapsed
-    
+
     toggleButton.addEventListener('click', () => {
         isExpanded = !isExpanded;
-        
+
         if (isExpanded) {
             // Show content
             content.style.maxHeight = content.scrollHeight + 'px';
@@ -272,7 +350,7 @@ function initializeHowToToggle() {
             toggleIcon.style.transform = 'rotate(-90deg)';
         }
     });
-    
+
     // Set initial state (collapsed)
     content.style.maxHeight = '0px';
     content.style.opacity = '0';
