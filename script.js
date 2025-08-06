@@ -8,21 +8,20 @@ class StationRegistration {
             'AI bemutató': '7507',
             'Munkanap szervezés (Helyszín: Kyndryl feladatok)': '0901',
             'HR felvételi (Helyszín: Kyndryl feladatok)': '2013',
-            'Elsősegély kvíz (Helyszín: Kyndryl feladatok)': '0112',
+            'Vöröskereszt bemutató (Helyszín: Kyndryl feladatok)': '0112',
             'Belépőkártya készítés': '7527',
             'Rendőrségi bemutató': '0104',
             'PC szétszedés és összerakás - bemutató': '7604',
             'Iroda térkép - Hol ülnek a szüleid?': '3535',
             // Budapest állomások (ugyanazok a jelszavak)
-            'BP - Teams értekezlet a Pitypang zenekarral': '7535',
-            'BP - AI bemutató': '7507',
-            'BP - Munkanap szervezés (Helyszín: Kyndryl feladatok)': '0901',
-            'BP - HR felvételi (Helyszín: Kyndryl feladatok)': '2013',
-            'BP - Elsősegély kvíz (Helyszín: Kyndryl feladatok)': '0112',
-            'BP - Belépőkártya készítés': '7527',
-            'BP - Rendőrségi bemutató': '0104',
-            'BP - PC szétszedés és összerakás - bemutató': '7604',
-            'BP - Iroda térkép - Hol ülnek a szüleid?': '3535'
+            'Teams értekezlet a Pitypang zenekarral': '7535',
+            'AI bemutató': '7507',
+            'Munkanap szervezés (Helyszín: Kyndryl feladatok)': '0901',
+            'HR felvételi (Helyszín: Kyndryl feladatok)': '2013',
+            'Vöröskereszt bemutató (Helyszín: Kyndryl feladatok)': '0112',
+            'Belépőkártya készítés': '7527',
+            'PC szétszedés és összerakás - bemutató': '7604',
+            'Iroda térkép - Hol ülnek a szüleid?': '3535'
         };
         this.savedName = localStorage.getItem('savedName') || '';
         this.completedStations = new Set(JSON.parse(localStorage.getItem('completedStations') || '[]'));
@@ -30,6 +29,7 @@ class StationRegistration {
         this.initializeEventListeners();
         this.loadSavedName();
         this.updateStationOptions();
+        this.handleLocationChange(); // Initialize visibility based on current selection
     }
 
     initializeEventListeners() {
@@ -82,6 +82,8 @@ class StationRegistration {
     handleLocationChange() {
         const szekesfehrvarpGroup = document.getElementById('stationGroupSzekesfehervar');
         const budapestGroup = document.getElementById('stationGroupBudapest');
+        const mapSection = document.querySelector('.map-section');
+        const scheduleAiTable = document.querySelector('.schedule-table:last-child');
         const selectedLocation = document.querySelector('input[name="location"]:checked');
 
         if (selectedLocation) {
@@ -89,15 +91,23 @@ class StationRegistration {
                 szekesfehrvarpGroup.style.display = 'block';
                 budapestGroup.style.display = 'none';
                 document.getElementById('stationBudapest').value = '';
+                
+                // Show map and AI schedule table for Székesfehérvár
+                if (mapSection) mapSection.style.display = 'block';
+                if (scheduleAiTable) scheduleAiTable.style.display = 'table';
             } else if (selectedLocation.value === 'budapest') {
                 szekesfehrvarpGroup.style.display = 'none';
                 budapestGroup.style.display = 'block';
                 document.getElementById('stationSzekesfehervar').value = '';
+                
+                // Hide map and AI schedule table for Budapest
+                if (mapSection) mapSection.style.display = 'none';
+                if (scheduleAiTable) scheduleAiTable.style.display = 'none';
             }
         }
     }
 
-    
+
 
     updateStationOptions() {
         const stationSelectSzekesfehervar = document.getElementById('stationSzekesfehervar');
